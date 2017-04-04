@@ -23,6 +23,7 @@
     </bean>
 
     <mvc:resources mapping="/dist/**" location="dist/"/>
+    <mvc:resources mapping="/img/**" location="img/"/>
 
 
 </beans>
