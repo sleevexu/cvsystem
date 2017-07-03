@@ -1,6 +1,7 @@
 package com.iimr.cvsystem.controller;
 
 import com.iimr.cvsystem.model.User;
+import com.iimr.cvsystem.service.UserInfoService;
 import com.iimr.cvsystem.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -19,6 +20,11 @@ import javax.servlet.http.HttpSession;
 public class UserController {
     @Autowired
     private UserService userService;
+    private UserInfoService userInfoService;
+
+    public UserController(UserInfoService userInfoService) {
+        this.userInfoService = userInfoService;
+    }
 
     @RequestMapping("/loginView")
     public String loginView(){
@@ -67,13 +73,24 @@ public class UserController {
             return mav;
         }
         else {
-            mav.setViewName("/TestPage");
-            mav.addObject("user",user1);
-            session.setAttribute("userId",user2.getUserId());
-            session.setAttribute("userName",user2.getUserName());
-            System.out.println("session:userId:"+session.getAttribute("userId"));
-            System.out.println("session:userName:"+session.getAttribute("userName"));
-            return mav;
+            System.out.println("userId"+user2.getUserId()+"class:"+"userName"+user2.getUserName()+"userPassword"+user2.getUserPassword());
+            if(userInfoService.checkUserInfoByUserId(user2)){
+                userInfoService.updateUserId(user2);
+                mav.setViewName("/TestPage");
+                mav.addObject("user",user1);
+                session.setAttribute("userId",user2.getUserId());
+                session.setAttribute("userName",user2.getUserName());
+                System.out.println("session:userId:"+session.getAttribute("userId"));
+                System.out.println("session:userName:"+session.getAttribute("userName"));
+                return mav;
+            }else {
+                mav.setViewName("/TestPage");
+                mav.addObject("user",user1);
+                session.setAttribute("userId",user2.getUserId());
+                session.setAttribute("userName",user2.getUserName());
+                System.out.println("session:userId:"+session.getAttribute("userId"));
+                System.out.println("session:userName:"+session.getAttribute("userName"));
+                return mav;}
         }
     }
 

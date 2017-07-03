@@ -3,7 +3,7 @@ package com.iimr.cvsystem.model;
 /**
  * Created by Jiajie on 2017/4/5.
  */
-public class Questionnaire {
+public class Ques {
     private int labId;
     private String labName;
     private String labAddress;
@@ -17,15 +17,15 @@ public class Questionnaire {
     private String powerModel;
     private String powerVolume;
     private String powerStableWay;
-    private String volStability;
-    private String freqStability;
-    private String maxDistort;
+    private double volStability;
+    private double freqStability;
+    private double maxDistort;
     private String iType;
     private String iManufactor;
     private String iModel;
-    private String iVolRange;
+    private int iVolRange;
     private String iVolAccu;
-    private String iCurrentRange;
+    private int iCurrentRange;
     private String iCurrentAccu;
     private String iCompensate;
     private String elecProtect;
@@ -139,27 +139,27 @@ public class Questionnaire {
         this.powerStableWay = powerStableWay;
     }
 
-    public String getVolStability() {
+    public double getVolStability() {
         return volStability;
     }
 
-    public void setVolStability(String volStability) {
+    public void setVolStability(double volStability) {
         this.volStability = volStability;
     }
 
-    public String getFreqStability() {
+    public double getFreqStability() {
         return freqStability;
     }
 
-    public void setFreqStability(String freqStability) {
+    public void setFreqStability(double freqStability) {
         this.freqStability = freqStability;
     }
 
-    public String getMaxDistort() {
+    public double getMaxDistort() {
         return maxDistort;
     }
 
-    public void setMaxDistort(String maxDistort) {
+    public void setMaxDistort(double maxDistort) {
         this.maxDistort = maxDistort;
     }
 
@@ -187,11 +187,11 @@ public class Questionnaire {
         this.iModel = iModel;
     }
 
-    public String getiVolRange() {
+    public int getiVolRange() {
         return iVolRange;
     }
 
-    public void setiVolRange(String iVolRange) {
+    public void setiVolRange(int iVolRange) {
         this.iVolRange = iVolRange;
     }
 
@@ -203,11 +203,11 @@ public class Questionnaire {
         this.iVolAccu = iVolAccu;
     }
 
-    public String getiCurrentRange() {
+    public int getiCurrentRange() {
         return iCurrentRange;
     }
 
-    public void setiCurrentRange(String iCurrentRange) {
+    public void setiCurrentRange(int iCurrentRange) {
         this.iCurrentRange = iCurrentRange;
     }
 

@@ -1,6 +1,7 @@
 package com.iimr.cvsystem.service.implement;
 
 import com.iimr.cvsystem.dao.UserDao;
+import com.iimr.cvsystem.dao.UserInfoDao;
 import com.iimr.cvsystem.model.User;
 import com.iimr.cvsystem.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,6 +15,7 @@ public class UserServiceImpl implements UserService {
 
     @Autowired
     private UserDao userDao;
+    private UserInfoDao userInfoDao;
 
     @Override
     public User loginCheck(User user) {
@@ -32,6 +34,7 @@ public class UserServiceImpl implements UserService {
         if (user1.getUserId() == 0) {
             userDao.register(user);
             System.out.println("userId" + user1.getUserId() + ", userName=" + user1.getUserName() + ", password=" + user1.getUserPassword());
+            System.out.println("userId" + user.getUserId() + ", userName=" + user.getUserName() + ", password=" + user.getUserPassword());
             return true;
         } else {
             System.out.println("userId" + user1.getUserId() + ", userName=" + user1.getUserName() + ", password=" + user1.getUserPassword());

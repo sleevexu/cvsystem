@@ -15,7 +15,7 @@ public class JspController {
     }
     @RequestMapping("question")
     public String QuesPage(){
-        return "questionnairePage";
+        return "quesPage";
     }
 
 }
